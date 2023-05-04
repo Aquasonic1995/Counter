@@ -124,3 +124,11 @@
     border-radius: 5px;
     outline: none;
 }
+.inputError{
+    background-color: #5b4c5d;
+    border: 2px solid red;
+}
+.spanError{
+    font-weight: 700;
+    color: red;
+}

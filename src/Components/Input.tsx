@@ -9,7 +9,7 @@ export const Input = (props: propsInputType) => {
         props.callBack(+e.currentTarget.value)
     }
     return(
-        <input onChange={onChangeCallback} type={props.type}/>
+        <input value={props.value} className={props.className} onChange={onChangeCallback} type={props.type}/>
     )
 }
 

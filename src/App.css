@@ -70,6 +70,9 @@
     align-items: center;
     justify-content: space-between;
 }
+.button__group_settings{
+    justify-content: center;
+}
 
 .button__group button {
     text-decoration: none;
@@ -87,7 +90,9 @@
     transition: .8s cubic-bezier(.165, .84, .44, 1);
     cursor: pointer;
 }
-
+.button__group_settings button{
+    width: 80%;
+}
 .button__group button:not([disabled]):hover {
     background: rgba(255, 255, 255, 0);
 }
@@ -102,4 +107,20 @@
     background: transparent;
     cursor: default;
     opacity: 0.5;
+}
+.counter__settings{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.counter__settings span{
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+.counter__settings input{
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
 }

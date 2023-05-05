@@ -10,6 +10,7 @@ function App() {
     const [maxValue, setMaxValue] = useState(0)
     let [count, setCount] = useState(startValue);
     let [error, setError] = useState('')
+    let [disabled, setDisabled] = useState(true)
     useEffect(() => {
         let startValueForString = localStorage.getItem('startValue')
         if(startValueForString){
@@ -43,20 +44,23 @@ function App() {
         }
     }
     const onClickSetValue = () => {
+
         if (startValue < maxValue) {
+            setDisabled(false)
             localStorage.setItem('startValue', JSON.stringify(startValue))
             localStorage.setItem('maxValue', JSON.stringify(maxValue))
             setCount(startValue)
         }
     }
     const getCounterIncrement = () => {
-        if (count === maxValue) {
-            count = startValue;
-            setCount(count);
-        }
         setCount(++count);
+        if (count === maxValue) {
+            setDisabled(true)
+        }
+
     }
     const getResetICount = () => {
+        setDisabled(false)
         setCount(startValue);
     }
     const checkValue = () => {
@@ -69,7 +73,7 @@ function App() {
             <div className="wrapper-counter">
                 <Display  error={error} maxCount={maxValue} count={count}/>
                 <div className="button__group">
-                    <Button disabled={count === maxValue|| maxValue < startValue} name={'Inc'} callBack={getCounterIncrement}/>
+                    <Button disabled={disabled} name={'Inc'} callBack={getCounterIncrement}/>
                     <Button disabled={count === startValue|| maxValue < startValue} name={'Reset'} callBack={getResetICount}/>
                 </div>
             </div>

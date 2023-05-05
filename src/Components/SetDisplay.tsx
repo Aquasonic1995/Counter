@@ -19,11 +19,11 @@ const SetDisplay = (props: setDisplayPropsType) => {
         <div style={displaySettings}>
             <div className='counter__settings'><span>max value:</span> <Input  checkValue={props.checkValue}
                 className={props.startValue >= props.maxValue ? 'inputError' : ''} value={props.maxValue}
-                callBack={props.getMaxValue} type={'number'}/>
+                callBack={props.getMaxValue} type={'text'}/>
             </div>
             <div className='counter__settings'><span>start value:</span> <Input  checkValue={props.checkValue}
                 className={props.startValue >= props.maxValue ? 'inputError' : ''} value={props.startValue}
-                callBack={props.getStartValue} type={'number'}/>
+                callBack={props.getStartValue} type={'text'}/>
             </div>
         </div>
     );

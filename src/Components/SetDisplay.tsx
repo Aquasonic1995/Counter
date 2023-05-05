@@ -12,18 +12,17 @@ type setDisplayPropsType = {
     getMaxValue: (value: number) => void
     startValue: number
     maxValue: number
-    error: string
+    checkValue: () => void
 }
 const SetDisplay = (props: setDisplayPropsType) => {
     return (
         <div style={displaySettings}>
-            <span className={'spanError'}>{props.error}</span>
-            <div className='counter__settings'><span>max value:</span> <Input
-                className={props.startValue > props.maxValue ? 'inputError' : ''} value={props.maxValue}
+            <div className='counter__settings'><span>max value:</span> <Input  checkValue={props.checkValue}
+                className={props.startValue >= props.maxValue ? 'inputError' : ''} value={props.maxValue}
                 callBack={props.getMaxValue} type={'number'}/>
             </div>
-            <div className='counter__settings'><span>start value:</span> <Input
-                className={props.startValue > props.maxValue ? 'inputError' : ''} value={props.startValue}
+            <div className='counter__settings'><span>start value:</span> <Input  checkValue={props.checkValue}
+                className={props.startValue >= props.maxValue ? 'inputError' : ''} value={props.startValue}
                 callBack={props.getStartValue} type={'number'}/>
             </div>
         </div>

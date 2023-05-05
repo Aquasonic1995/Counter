@@ -1,30 +1,28 @@
 import React from 'react';
+
 const display = {
     width: '100%',
     minHeight: '100px',
 }
-const counter = {
-    width: '90%',
-    margin: "0 auto",
-    border: '4px solid grey',
+const count = {
     fontSize: '90px',
-    fontWeight: 'bold'
+    fontWeight: '900'
 }
-const styleIfCountOff = {
-    color: 'red',
-}
-const styleIfCountReset = {
-    color: 'white',
-}
+
 type displayPropsType = {
     count: number
     maxCount: number
+    error: string
 }
 const Display: React.FC<displayPropsType> = (props) => {
+    console.log(props.error)
     return (
         <div style={display}>
-            <div style={counter}>
-                <span style={props.count === props.maxCount ? styleIfCountOff : styleIfCountReset}>{props.count}</span>
+            <span className={props.error ? 'errorText' : ''}>{props.error}</span>
+
+            <div className='counter'>
+        <span style={count}
+              className={props.count === props.maxCount ? 'styleIfCountOff' : 'styleIfCountReset'}>{props.count}</span>
             </div>
         </div>
     );

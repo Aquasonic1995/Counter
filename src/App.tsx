@@ -74,7 +74,7 @@ function App() {
                 <Display  error={error} maxCount={maxValue} count={count}/>
                 <div className="button__group">
                     <Button disabled={disabled} name={'Inc'} callBack={getCounterIncrement}/>
-                    <Button disabled={count === startValue|| maxValue < startValue} name={'Reset'} callBack={getResetICount}/>
+                    <Button disabled={count === startValue|| maxValue < startValue || count === 0} name={'Reset'} callBack={getResetICount}/>
                 </div>
             </div>
             <div className="wrapper-counter wrapper-counter__setting">
